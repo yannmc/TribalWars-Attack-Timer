@@ -25,7 +25,7 @@ When using this web app, you need to give it some information concerning your ar
 
 # Goal behind the app :
   
-TribalWars attack Timer goal is to help the user when it comes to sending armies and making sure that they hit the target at the exact time. The help will tell you when to send the attack by taking into consideration the slowest type of troops that your army will include.
+TribalWars Attack Timer goal is to help the user when it comes to sending armies and making sure that they hit the target at the exact time. The help will tell you when to send the attack by taking into consideration the slowest type of troops that your army will include.
  
 # Developer : 
 Yann Morin-Charbonneau @yannmc
