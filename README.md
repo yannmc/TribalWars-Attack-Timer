@@ -13,7 +13,7 @@ When using this web app, you need to give it some information concerning your ar
  - Then add the date as well as the exact time when you want your army to reach the village.
  - In case you have multiple villages, you can register all of them using their coordinates.
  - Finally, all have you have to do is to select what type of troops will be leaving each of your villages.
- - Then press 'confirm'
+ - Then press 'confirm'.
  
 # The app provides information in the following format :
 
