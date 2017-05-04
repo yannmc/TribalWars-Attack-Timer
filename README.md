@@ -17,7 +17,7 @@ When using this web app, you need to give it some information concerning your ar
  
 # The app provides information in the following format :
 
- - Villages Name : Village 1
+ - Village Name : Village 1
  - Coordinates : X : 453, Y : 562 
  - Distance : 78 fields
  - Travel Time : 23h:20m:25s
