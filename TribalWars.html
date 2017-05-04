@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Made by Yann Morin Charbonneau - Github : @yannmc
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<meta charset="UTF8">
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="TribalWars.css">
+  <script src="Interact.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="TribalWars.js"></script>
+  <title>Tribalwars Timing Helper</title>
+</head>
+<body id="ds_body" class="desktop_scrollableMenu" dir="ltr" onload="onLoad()">
+  <div class="top_bar">
+    <div class="bg_left"></div>
+    <div class="bg_right"></div>
+  </div>
+  <div class="top_shadow"></div>
+  <table id="mainLayout">
+    <tbody>
+      <tr style="height: 40px;">
+        <td class="topbar left"></td>
+        <td class="topbar center" style="padding-bottom:35px">
+          <div id="topContainer">Tribalwars Timing Helper</div>
+        </td>
+        <td class="topbar right"></td>
+      </tr>
+      <tr class="shadedBG">
+        <td class="bg_left">
+          <div class="bg_left"></div>
+        </td>
+        <td class="mainCell" style="width: 1000px;">
+          <table id="targetBarOuter">
+            <tbody>
+              <tr>
+                <td>
+                  <table id="targetBarInner">
+                    <tbody>
+                      <tr class="topBorder">
+                        <td class="left"></td>
+                        <td class="main" colspan="3"></td>
+                        <td class="right"></td>
+                      </tr>
+                      <tr>
+                        <td class="left"></td>
+                        <td class="main"><img src="images/axe.gif" height="45" width="45"></td>
+                        <td id="targetBarContents" class="main">
+                          <ul class="menu quickbar">
+                            <li class="quickbar_item">
+                              <span id="targetTitle">
+                                Target's Informations
+                              </span>
+                            </li>
+                          </ul>
+                        </td>
+                        <td class="main"><img src="images/axe.gif" height="45" width="45"></td>
+                        <td class="right"></td>
+                      </tr>
+                      <tr>
+                        <td class="left"></td>
+                        <td id="targetBarContents" class="main" colspan="3">
+                          <ul class="menu quickbar">
+                            <li class="quickbar_item">
+                              <span>
+                                Coordinates :
+                                <input class="input" value="500" type="text" size="4" id="xT" placeholder="X" onchange="updateTargetInformations()"/>
+                                <input class="input" value="500" type="text" size="4" id="yT" placeholder="Y" onchange="updateTargetInformations()"/>
+                                Date :
+                                <select id="month" onchange="updateTargetInformations()">
+                                  <option value="0">January</option>
+                                  <option value="1">February</option>
+                                  <option value="2">March</option>
+                                  <option value="3">April</option>
+                                  <option value="4">May</option>
+                                  <option value="5">June</option>
+                                  <option value="6">July</option>
+                                  <option value="7">August</option>
+                                  <option value="8">September</option>
+                                  <option value="9">October</option>
+                                  <option value="10">November</option>
+                                  <option value="11">December</option>
+                                </select>
+                                <select id="days" onchange="updateTargetInformations()">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                  <option value="21">21</option>
+                                  <option value="22">22</option>
+                                  <option value="23">23</option>
+                                  <option value="24">24</option>
+                                  <option value="25">25</option>
+                                  <option value="26">26</option>
+                                  <option value="27">27</option>
+                                  <option value="28">28</option>
+                                  <option value="29">29</option>
+                                  <option value="30">30</option>
+                                  <option value="31">31</option>
+                                </select>
+                                Landing Time :
+                                <input class="input" type="text" size="4" id="hours" placeholder="h" onchange="updateTargetInformations()"/>
+                                :
+                                <input class="input" type="text" size="4" id="minutes" placeholder="m" onchange="updateTargetInformations()"/>
+                                :
+                                <input class="input" type="text" size="4" id="seconds" placeholder="s" onchange="updateTargetInformations()"/>
+                                <input class="btn" type="submit" value="Save" onclick="saveTarget()">
+                                <input class="btn" type="submit" value="Delete Memory" onclick="deleteTargetMemory()">
+                              </span>
+                            </li>
+                          </ul>
+                        </td>
+                        <td class="right"></td>
+                      </tr>
+                      <tr class="bottomBorder">
+                        <td class="left"></td>
+                        <td class="main" colspan="3"></td>
+                        <td class="right"></td>
+                      </tr>
+                      <tr>
+                        <td class="shadow" colspan="5">
+                          <div class="leftshadow"></div>
+                          <div class="rightshadow"></div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div class="popup_helper">
+            <div id="inline_popup" class="ui-draggable hidden" style"width:500px; left:500px; top:130px;">
+              <div id="inline_popup_menu">
+                <span id="inline_popup_title">Quick Copy and Paste</span>
+                <a id="inline_popup_close" href="javascript:inlinePopupClose()">X</a>
+              </div>
+              <div id="inline_popup_main" style="height:auto;max-height:950px;">
+                <div id="inline_popup_content" style="height:auto">
+                  <div class="inner-border main content-border" style="border:none;font-weight:normal;">
+                    <table style="float:left;width:500px;">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <p id="copyPaste"></p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <table align="center" id="contentContainer" width="100%">
+            <tbody>
+              <tr>
+                <td>
+                  <table class="content-border" width="100%" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <td id="inner-border">
+                          <table class="main" align="left">
+                            <tbody>
+                              <tr>
+                                <td id="content_value">
+                                  <div id="paged_view_content">
+                                    <table id="units_table" class="vis overview_table" style="width:100%; margin:0 auto;">
+                                      <thead>
+                                        <tr>
+                                          <th id="attackInfo" colspan="18">Village Informations</th>
+                                        </tr>
+                                        <tr>
+                                          <th style="text-align:center" width="150px">My Villages Names</th>
+                                          <th style="text-align:center" width="50" colspan="2">Coordinates</th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_spear.png" title="spear" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_sword.png" title="sword" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_axe.png" title="axe" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_archer.png" title="archer" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_spy.png" title="spy" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_light.png" title="light cavalry" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_marcher.png" title="mounted archer" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_heavy.png" title="heavy cavalry" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_ram.png" title="ram" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_catapult.png" title="catapult" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_knight.png" title="paladin" alt class></th>
+                                          <th style="text-align:center" width="35"><img src="images/unit_snob.png" title="noble" alt class></th>
+                                          <th style="text-align:center" width="100">Is Attacking</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody class="row_marker row_a" id="allVilla">
+                                        <tr>
+                                          <td><img class="deleteBtn" src="images/delete.png" onclick="deleteRow(this)"><input class="input" type="text" size="15" id="nameV1" placeholder="village's name"/></td>
+                                          <td style="text-align:center" valign="top">
+                                            <input class="input" value="500" type="text" size="4" placeholder="X"/>
+                                          </td>
+                                          <td style="text-align:center" valign="top">
+                                            <input class="input" value="500" type="text" size="4" placeholder="Y"/>
+                                          </td>
+                                          <td><input type="checkbox" name="unitSpear" value="spear"></td>
+                                          <td><input type="checkbox" name="unitSword" value="sword"></td>
+                                          <td><input type="checkbox" name="unitAxe" value="axe"></td>
+                                          <td><input type="checkbox" name="unitArcher" value="archer"></td>
+                                          <td><input type="checkbox" name="unitSpy" value="spy"></td>
+                                          <td><input type="checkbox" name="unitLight" value="light"></td>
+                                          <td><input type="checkbox" name="unitMarcher" value="marcher"></td>
+                                          <td><input type="checkbox" name="unitHeavy" value="heavy"></td>
+                                          <td><input type="checkbox" name="unitRam" value="ram"></td>
+                                          <td><input type="checkbox" name="unitCatapult" value="catapult"></td>
+                                          <td><input type="checkbox" name="unitKnight" value="knight"></td>
+                                          <td><input type="checkbox" name="unitNoble" value="snob"></td>
+                                          <td><input type="checkbox" name="useIt" value="selected"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <div>
+                                      <input class="btn" type="submit" value="add village" onclick="addVillage(),rowColor()"><input class="btn" type="submit" value="Save" onclick="saveVillages()"><input class="btn" type="submit" value="Delete Memory" onclick="deleteVillageMemory()"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                    <table class="content-border" width="100%" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td id="inner-border">
+                            <table class="main" align="left">
+                              <tbody>
+                                <tr>
+                                  <td id="content_value">
+                                    <div id="paged_view_content">
+                                      <table id="attack_table" class="vis overview_table" style="width:100%; margin:0 auto;">
+                                        <thead>
+                                          <tr>
+                                            <th id="attackInfo" colspan="5">Attack Informations</th>
+                                          </tr>
+                                          <tr>
+                                            <th style="text-align:center" width="100px">My Villages Names</th>
+                                            <th style="text-align:center" width="100px">Coordinates</th>
+                                            <th style="text-align:center" width="100px">Distance</th>
+                                            <th style="text-align:center" width="100px">Travel Time</th>
+                                            <th style="text-align:center" width="180px">Departure</th>
+                                          </tr>
+                                        </thead>
+                                        <tfoot id="attack">
+                                        </tfoot>
+                                      </table>
+                                      <div>
+                                        <input class="btn" type="submit" value="Confirm" onclick="attackRow()"><input class="btn" type="submit" value="Quick Copy and Paste" onclick="quickCopyPaste()">
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td class="bg_right">
+            <div class="bg_right" id="SkyScraperAdCell"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="bg_leftborder"></td>
+          <td></td>
+          <td class="bg_rightborder"></td>
+        </tr>
+        <tr class="newStyleOnly">
+          <td class="bg_bottomLeft"></td>
+          <td class="bg_bottomCenter"></td>
+          <td class="bg_bottomRight"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</body>
+</html>
