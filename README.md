@@ -2,11 +2,11 @@
 
 # Description :
 
-  TribalWars is a browser-based real time strategy game. In this game you get to send armies full of troops at other villages. Those armies can be sent to attack an opponent or to support an ally. Anyway, when you take the game seriously, you might get to the point where you're timing your armies to the millisecond. And this tool is here to help doing that.
+TribalWars is a browser-based real time strategy game. In this game you get to send armies full of troops at other villages. Those armies can be sent to attack an opponent or to support an ally. Anyway, when you take the game seriously, you might get to the point where you're timing your armies to the millisecond. And this tool is here to help doing that.
   
 # What does it do ? :
 
-  When using this web app, you need to give it some information concerning your army and where you want to send it, here's how it works :
+When using this web app, you need to give it some information concerning your army and where you want to send it, here's how it works :
 
  - TribalWars is based on a massive grid-like system, where every village has its own set of coordinates. 
  - Therefore, you need to enter the coordinates of your target.
@@ -25,7 +25,7 @@
 
 # Goal behind the app :
   
-  TribalWars attack Timer goal is to help the user when it comes to sending armies and making sure that they hit the target at the exact time. The help will tell you when to send the attack by taking into consideration the slowest type of troops that your army will include.
+TribalWars attack Timer goal is to help the user when it comes to sending armies and making sure that they hit the target at the exact time. The help will tell you when to send the attack by taking into consideration the slowest type of troops that your army will include.
  
 # Developer : 
-  Yann Morin-Charbonneau @yannmc
+Yann Morin-Charbonneau @yannmc
